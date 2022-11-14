@@ -1,0 +1,13 @@
+﻿@page "/QR"
+@using IronBarCode
+<h2>Data of scanned Barcode</h2>
+<hr />
+<button class="mt-3 p-3 rounded-3 bg-info text-white border-0" @onclick="ScanQR"> Click to scan</button>
+<p class="mt-5">Output: @headingText</p>
+
+@code {
+    private string headingText = "";
+    private void ScanQR(){
+        headingText = BarcodeReader.Read(@"C:\Users\Administrator\Desktop\Images\barcode.png").First().Text;
+    }
+}
